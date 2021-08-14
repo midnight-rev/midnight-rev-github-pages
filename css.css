@@ -1,0 +1,46 @@
+/* Original source: https://codepen.io/chriscoyier/pen/GBbOJd */
+body {
+    background-color: black;
+    background-image: radial-gradient(
+      rgba(80, 15, 201, 0.75), black 120%
+    );
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    padding: 2rem;
+    color: rgb(0, 255, 221);
+    font: 1.0rem Inconsolata, monospace;
+    text-shadow: 0 0 2px #ff0202;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(black, 0.15),
+        rgba(black, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+    }
+  }
+  ::selection {
+    background: #0080FF;
+    text-shadow: none;
+  }
+  pre {
+    margin: 0;
+  }
+
+  a:visited {
+    color:rgb(255, 251, 0)
+  }
+  a:link {
+    color:rgb(255, 251, 0)
+  }
+
+  
