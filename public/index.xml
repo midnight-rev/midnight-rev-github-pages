@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Midnight Hackings</title>
+    <link>https://blog.midnighthackings.com/</link>
+    <description>Midnight Hackings - Yet another security blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>No CopyRight, viva la revolution</copyright>
+    <lastBuildDate>Tue, 05 Jul 2022 12:00:00 -0300</lastBuildDate><atom:link href="https://blog.midnighthackings.com/index.xml" rel="self" type="application/rss+xml" />
+      <item>
+        <title>About</title>
+        <link>https://blog.midnighthackings.com/privacy/</link>
+        <pubDate>Tue, 05 Jul 2022 12:00:00 -0300</pubDate>
+        
+        <guid>https://blog.midnighthackings.com/privacy/</guid>
+        <description>Mateus Gualberto Fortaleza - CE / Brazil
+Reverse Engineer, Malware Analyst, Low Level Lover! Of course, Malware Dev sometimes :)
+Midnight Hackings is a small project focused in showing some security information knowledge to the community.
+The contents here are not limited to any specific security-related field (e.g. pentest only, malware dev only).</description>
+      </item>
+    
+      <item>
+        <title>Contacts</title>
+        <link>https://blog.midnighthackings.com/contacts/</link>
+        <pubDate>Tue, 05 Jul 2022 12:00:00 -0300</pubDate>
+        
+        <guid>https://blog.midnighthackings.com/contacts/</guid>
+        <description>Linkedin https://br.linkedin.com/in/mateus-gualberto-santos
+E-mail profissional.mateus.gualberto@gmail.com
+Github https://github.com/midnight-rev</description>
+      </item>
+    
+      <item>
+        <title>Pentest 0x00</title>
+        <link>https://blog.midnighthackings.com/posts/pentest-0x00/</link>
+        <pubDate>Tue, 05 Jul 2022 12:00:00 -0300</pubDate>
+        
+        <guid>https://blog.midnighthackings.com/posts/pentest-0x00/</guid>
+        <description>Introdução Nessa série de postagens, iremos descrever ferramentas essenciais que serão úteis para diversos cenários de pentest.
+Essas ferramentas servirão principalmente para execução de comandos, estabelecimento de shells, envio de arquivos e análise de pacotes de redes.
+Hoje trataremos no Netcat, ou nc. O IP utilizado pode sofrer alterações de exemplo para exemplo, logo é importante que o leitor entenda as diferenças entre o IP da vítima e do atacante ao longo do texto.</description>
+      </item>
+    
+  </channel>
+</rss>

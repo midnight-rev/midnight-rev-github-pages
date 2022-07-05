@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Midnight Hackings</title>
+    <link>https://blog.midnighthackings.com/tags/</link>
+    <description>Midnight Hackings - Yet another security blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>No CopyRight, viva la revolution</copyright>
+    <lastBuildDate>Tue, 05 Jul 2022 12:00:00 -0300</lastBuildDate><atom:link href="https://blog.midnighthackings.com/tags/index.xml" rel="self" type="application/rss+xml" />
+      <item>
+        <title>pentest</title>
+        <link>https://blog.midnighthackings.com/tags/pentest/</link>
+        <pubDate>Tue, 05 Jul 2022 12:00:00 -0300</pubDate>
+        
+        <guid>https://blog.midnighthackings.com/tags/pentest/</guid>
+        <description></description>
+      </item>
+    
+      <item>
+        <title>tools</title>
+        <link>https://blog.midnighthackings.com/tags/tools/</link>
+        <pubDate>Tue, 05 Jul 2022 12:00:00 -0300</pubDate>
+        
+        <guid>https://blog.midnighthackings.com/tags/tools/</guid>
+        <description></description>
+      </item>
+    
+  </channel>
+</rss>
