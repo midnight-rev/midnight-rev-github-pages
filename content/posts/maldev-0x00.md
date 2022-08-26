@@ -16,7 +16,7 @@ Além disso, uma máquina Kali e conhecimentos de redes básico e metasploit/msf
 
 Como parte das técnicas e modos de evasão de defesa, é provável que os métodos descritos ou o shellcode sejam detectados e bloqueados com o passar do tempo, devido a melhorias na solução de antivírus.
 
-Abaixo estão links para o instalador do Visu8al Studio Community e máquina virtual Windows 10 gratuita:
+Abaixo estão links para o instalador do Visual Studio Community e máquina virtual Windows 10 gratuita:
 
 - [Visual Studio Community](https://visualstudio.microsoft.com/pt-br/vs/community/)
 - [Máquina virtual Windows 10 Evaluation](https://bit.ly/windowsvm)
