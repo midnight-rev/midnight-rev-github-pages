@@ -1,0 +1,30 @@
+{{ define "main" }}
+
+  <main class="list">
+
+    {{ partialCached "search-form" . }}
+    
+    {{ $searchIndexLink := partialCached "search-index" . }}
+
+    <h1>{{ .Title }}</h1>
+    
+    <div id="search-info">
+      <!-- Info -->
+    </div>
+
+    <ul
+      id="search-results"
+      class="posts"
+      data-search-index="{{ $searchIndexLink }}"
+      data-lib-version="{{ .Site.Data.default.libs.fusejs }}"
+    />
+      <!-- Results -->
+    </ul>
+    
+    <template id="search-results-template">
+      <li><a class="btn"></a></li>
+    </template>
+
+  </main>
+
+{{ end }}
