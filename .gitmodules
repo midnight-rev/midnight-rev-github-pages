@@ -1,3 +1,3 @@
 [submodule "public"]
-	path = public
-	url = https://github.com/midnight-rev/midnight-rev.github.io
+        path = public
+        url = https://github.com/midnight-rev/midnight-rev.github.io

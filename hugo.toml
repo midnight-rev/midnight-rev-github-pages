@@ -1,0 +1,59 @@
+baseURL = "https://blog.midnighthackings.com/"
+languageCode = "pt-br"
+title = "Midnight Hackings"
+copyright = "GPL is life, contribute to copyleft projects!"
+theme = "npqhugo"
+pygmentsUseClasses=true
+
+[params]
+  #displayHomeContent = true
+  mainSections = ["index"]
+  author = "Midnight Reverser"
+  description = "Security Researcher in Reversing/Malware/Low Level fields"
+  keywords = "midnighthackings midnight-rev midnight"
+  useAvatar = false
+  microBlogSection = "posts"
+  displayMicroBlog = false
+  displayRecent = false
+  recentMax = 10
+  mail = "midnight.reverser@outlook.com"
+
+[menu]
+  # [[menu.main]]
+  #   name = "home"
+  #   pre = "<i class=\"fas fa-home fa-sm\"></i>"
+  #   url = "/"
+  #   weight = -9 
+  [[menu.main]]
+    name = "posts"
+    pre = "<i class=\"fas fa-keyboard fa-ms\"></i>"
+    url = "/posts"
+    weight = -8
+  [[menu.main]]
+    name = "tags"
+    pre = "<i class=\"fas fa-tags fa-ms\"></i>"
+    url = "/tags"
+    weight = -7 
+  [[menu.main]]
+    name = "github"
+    pre = "<i class=\"fab fa-github fa-ms\"></i>"
+    url = "https://github.com/midnight-rev"
+    weight = -6 
+  [[menu.main]]
+    name = "RSS"
+    pre = "<i class=\"fas fa-rss fa-ms\"></i>"
+    url = "/index.xml"
+    weight = -4 
+  [[menu.main]]
+    name = "contact"
+    pre = "<i class=\"far fa-envelope\"></i>"
+    url = "/contact"
+    weight = -1 
+
+
+[blackfriday]
+  extensions = [
+    "laxHtmlBlocks", # laxer block handling... let's see what this does?
+    "hardLineBreak", # newlines result in line breaks
+  ]
+
