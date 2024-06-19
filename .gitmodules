@@ -1,3 +1,7 @@
 [submodule "public"]
         path = public
         url = https://github.com/midnight-rev/midnight-rev.github.io
+
+[submodule "midnight-hackings-theme"]
+	path = themes/midnight-hackings-theme
+	url = https://github.com/midnight-rev/midnight-hackings-theme
