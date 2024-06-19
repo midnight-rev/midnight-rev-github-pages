@@ -18,6 +18,9 @@ pygmentsUseClasses=true
   recentMax = 10
   mail = "midnight.reverser@outlook.com"
 
+[params.meta]
+  favicon = true
+
 [menu]
   # [[menu.main]]
   #   name = "home"
