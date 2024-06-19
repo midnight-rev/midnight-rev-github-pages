@@ -2,7 +2,7 @@ baseURL = "https://blog.midnighthackings.com/"
 languageCode = "pt-br"
 title = "Midnight Hackings"
 copyright = "GPL is life, contribute to copyleft projects!"
-theme = "npqhugo"
+theme = "midnight-hackings-theme"
 pygmentsUseClasses=true
 
 [params]
