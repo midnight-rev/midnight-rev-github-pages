@@ -1,7 +1,7 @@
 baseURL = "https://blog.midnighthackings.com/"
 languageCode = "pt-br"
-title = "Midnight Hackings"
-copyright = "GPL is life, contribute to copyleft projects!"
+title = "Midnight Hackings - #FimDaEscala6x1"
+copyright = "Midnight Hackings apoia GPL e o fim da escala 6x1!"
 theme = "midnight-hackings-theme"
 pygmentsUseClasses=true
 
@@ -11,7 +11,7 @@ pygmentsUseClasses=true
   author = "Midnight Reverser"
   description = "Security Researcher in Reversing/Malware/Low Level fields"
   keywords = "midnighthackings midnight-rev midnight"
-  useAvatar = false
+  useAvatar = true
   microBlogSection = "posts"
   displayMicroBlog = false
   displayRecent = false
