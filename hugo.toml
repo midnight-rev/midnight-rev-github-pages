@@ -59,4 +59,6 @@ pygmentsUseClasses=true
     "laxHtmlBlocks", # laxer block handling... let's see what this does?
     "hardLineBreak", # newlines result in line breaks
   ]
-
+ 
+[markup.goldmark.renderer]
+  unsafe = true
