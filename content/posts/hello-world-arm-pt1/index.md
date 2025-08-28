@@ -6,6 +6,9 @@ tags: [arm, reversing]
 pinned: false
 ---
 
+> Escrito por: Mateus Gualberto (Midnight Reverser) - **orgulho de escrever sem IA envolvida no processo!**  
+> Licença: livre, como todo conhecimento deve ser.  
+
 ![arm](img/arm.png)
 
 # Introdução

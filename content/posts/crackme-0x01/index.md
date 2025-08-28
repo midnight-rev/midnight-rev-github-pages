@@ -6,6 +6,9 @@ tags: [ctf, crackme]
 pinned: false
 ---
 
+> Escrito por: Mateus Gualberto (Midnight Reverser) - **orgulho de escrever sem IA envolvida no processo!**  
+> Licença: livre, como todo conhecimento deve ser.  
+
 # Introdução
 
 Nesse artigo, iremos resolver o desafio [crackme#7](https://crackmes.one/crackme/64764cee33c5d439389134f2) do usuário [timotei_](https://crackmes.one/user/timotei_), disponibilizado na plataforma crackmes.one. Trataremos nas seções que seguem das análises estática e dinâmica de um código que modifica sua própria estrutura dependendo de certas condições.

@@ -1,10 +1,10 @@
 ---
-title: "Midnight Hackings: pelo fim da escala 6x1!"
-date: 2024-11-12T00:00:00-03:00
+title: "Midnight Hackings"
+date: 2025-08-25T21:00:00-03:00
 draft: false
 ---
 
-# O lobby hacker - ou a biblioteca virtual
+# <i><span style="color: yellow;">midnight</span>@<span style="color: yellow;">reversing</span>:<span style="color: purple;">/home/midnight</span> $ <span style="color: green;"><b>intro</b></span></i>
 
 Seja bem-vindo ao universo da segurança da informação. Aqui você encontrará informação de qualidade sobre os mais diversos assuntos (em especial: engenharia reversa, maldev e low level) e para todos os níveis - desde o iniciante, script kiddie, até o especialista.
 
@@ -12,21 +12,17 @@ Sim, segurança da informação é muito mais que apenas uma área do mundo corp
 
 Nesse site, além de posts técnicos em segurança da informação, também haverá posts sobre GNU+Linux, software livre e incentivo ao copyleft. Afinal, o hacking por vezes utiliza muitos projetos open source, e também devemos uma contribuição a quem os distribui dessa forma.
 
-Aproveitando a deixa, tenho um livro 100% gratuito, licença Creative Commons, sobre linux para hackers, [aqui está o link](https://linux4hackers.midnighthackings.com/)! Não, não vou te vender um curso de Linux ao final dele, como muitos influencers atualmente fazem. Aproveite!
-
 Vamos juntos nessa jornada rumo aos hackings da meia-noite!
 
 *Esse site foi feito com muito esforço e amor, sem dinheiro ou patrocínio envolvidos :)*
 
-# Um pouco mais sobre o autor (Midnight Reverser)
+# Minhas criações
 
-Mateus Gualberto atualmente é analista em Cyber Threat Intelligence e apaixonado por software livre e GNU/Linux. Trabalha com segurança da informação no mundo corporativo desde 2019, tendo experiência prática nas áreas de Cyber Threat Intelligence e Malware Analysis.
+- [(Antigo, em refatoração) Minicurso Introdução a Engenharia Reversa](https://www.youtube.com/playlist?list=PLrRcDKeRZDSx8cJlNEx6ubET-s8NjsldP)
+- [(Em construção) Livro Linux básico para hackers](https://linux4hackers.midnighthackings.com/)
 
-Assuntos que me interessam:
 
-- Reverse Engineering
-- Malware Analysis
-- Low Level Security
-- Exploitation
+# Participações
 
-E praticamente todas as subáreas desse grande guarda-chuva que é a segurança da informação.
+- [Trojans: Introdução, Análise, BinDiff! - (Palestra 05/2025 - OWASP)](https://www.linkedin.com/feed/update/urn:li:activity:7327457052270718976/)
+- [Um byte de engenharia reversa - (Palestra 03/2024 - FortalSec)](https://www.linkedin.com/feed/update/urn:li:activity:7175978161388544000/?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7175978161388544000%29)

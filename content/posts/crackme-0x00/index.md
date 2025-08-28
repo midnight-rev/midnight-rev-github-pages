@@ -6,6 +6,9 @@ tags: [ctf, crackme]
 pinned: false
 ---
 
+> Escrito por: Mateus Gualberto (Midnight Reverser) - **orgulho de escrever sem IA envolvida no processo!**  
+> Licença: livre, como todo conhecimento deve ser.  
+
 # Introdução
 Como toda pessoa que atua com engenharia reversa, sempre senti vontade de aprofundar meus conhecimentos no framework radare2, e talvez utilizá-lo como framework padrão para minhas análises e CTFs. Por esse motivo, resolvi esse crackme, chamado BruteVerse, postado no site [crackmes.one](https://crackmes.one) utilizando o radare2. Esse post também dará início a uma série de postagens de resolução de CTFs.
 

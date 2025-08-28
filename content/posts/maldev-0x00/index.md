@@ -6,6 +6,9 @@ tags: [malware-dev, injection]
 pinned: false
 ---
 
+> Escrito por: Mateus Gualberto (Midnight Reverser) - **orgulho de escrever sem IA envolvida no processo!**  
+> Licença: livre, como todo conhecimento deve ser.  
+
 # Introdução
 Nesse artigo, iremos discutir o funcionamento de APCs em sistemas Windows e como podemos utilizá-las ao nosso favor em cenários de evasão de defesas e red teaming.
 

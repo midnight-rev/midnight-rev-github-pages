@@ -1,64 +1,154 @@
 baseURL = "https://blog.midnighthackings.com/"
-languageCode = "pt-br"
-title = "Midnight Hackings - #FimDaEscala6x1"
-copyright = "Midnight Hackings apoia GPL e o fim da escala 6x1!"
+languageCode = "br"
+defaultContentLanguage = 'br'
+title = "Midnight Hackings Blog"
+copyright = "Midnight Hackings apoia o fim da escala 6x1!"
 theme = "midnight-hackings-theme"
 pygmentsUseClasses=true
 
+# Add it only if you keep the theme in the `themes` directory.
+# Remove it if you use the theme as a remote Hugo Module.
+pagination.pagerSize = 5
+
+# Required for Chroma and the custom syntax highlighting.
+[markup.highlight]
+  noClasses = false
+
 [params]
-  #displayHomeContent = true
-  mainSections = ["index"]
-  author = "Midnight Reverser"
-  description = "Security Researcher in Reversing/Malware/Low Level fields"
-  keywords = "midnighthackings midnight-rev midnight"
-  useAvatar = true
-  microBlogSection = "posts"
-  displayMicroBlog = false
-  displayRecent = false
-  recentMax = 10
-  mail = "midnight.reverser@outlook.com"
+  # dir name of your main content (default is `content/posts`).
+  # the list of set content will show up on your index page (baseurl).
+  contentTypeName = "posts"
 
-[params.meta]
-  favicon = true
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 5
 
-[menu]
-  # [[menu.main]]
-  #   name = "home"
-  #   pre = "<i class=\"fas fa-home fa-sm\"></i>"
-  #   url = "/"
-  #   weight = -9 
-  [[menu.main]]
-    name = "posts"
-    pre = "<i class=\"fas fa-keyboard fa-ms\"></i>"
-    url = "/posts"
-    weight = -8
-  [[menu.main]]
-    name = "tags"
-    pre = "<i class=\"fas fa-tags fa-ms\"></i>"
-    url = "/tags"
-    weight = -7 
-  [[menu.main]]
-    name = "github"
-    pre = "<i class=\"fab fa-github fa-ms\"></i>"
-    url = "https://github.com/midnight-rev"
-    weight = -6 
-  [[menu.main]]
-    name = "RSS"
-    pre = "<i class=\"fas fa-rss fa-ms\"></i>"
-    url = "/index.xml"
-    weight = -4 
-  [[menu.main]]
-    name = "contact"
-    pre = "<i class=\"far fa-envelope\"></i>"
-    url = "/contact"
-    weight = -1 
+  # show selector to switch language
+  showLanguageSelector = true
+
+  # set theme to full screen width
+  fullWidthTheme = false
+
+  # center theme with default width
+  centerTheme = true
+
+  # if your resource directory contains an image called `cover.(jpg|png|webp)`,
+  # then the file will be used as a cover automatically.
+  # With this option you don't have to put the `cover` param in a front-matter.
+  autoCover = true
+
+  # set post to show the last updated
+  # If you use git, you can set `enableGitInfo` to `true` and then post will automatically get the last updated
+  showLastUpdated = true
+
+  # Provide a string as a prefix for the last update date. By default, it looks like this: 2020-xx-xx [Updated: 2020-xx-xx] :: Author
+  updatedDatePrefix = "Atualizado em"
+
+  # whether to show a page's estimated reading time
+  readingTime = true # default
+
+  # whether to show a table of contents
+  # can be overridden in a page's front-matter
+  Toc = true # default
+
+  # set title for the table of contents
+  # can be overridden in a page's front-matter
+  TocTitle = "Sumário" # default
+
+  # Set date/time format for posts
+  # This will impact the date/time displayed on
+  # index.html, the posts list page, and on posts themselves
+  # This value can also be configured per-post on front matter
+  # If you have any issues with the timezone rendering differently
+  # than you expected, please ensure your timezone is correctly set
+  # on your server.
+  # This value can be customized according to Hugo documentation:
+  # https://gohugo.io/functions/time/format/
+  # Default value (no changes needed):
+  dateFormat = "02/01/2006"
+  # Example format, with date, time, and timezone abbreviation:
+  # dateFormat = "2006-01-02 3:04:06 PM MST"
+
+
+[params.twitter]
+  # set Twitter handles for Twitter cards
+  # see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started#card-and-content-attribution
+  # do not include @
+  creator = ""
+  site = ""
+
+[languages]
+  [languages.br]
+    languageName = "🇧🇷 Brasileiro"
+    title = "Midnight Hackings"
+
+    [languages.br.params]
+      subtitle = "Midnight Hackings Blog"
+      owner = "Midnight Reverser"
+      keywords = "midnight,blog,reverse-engineer,reversing"
+      copyright = "Copyleft, conhecimento livre!"
+      menuMore = "Mostrar mais"
+      readMore = "Ler mais"
+      readOtherPosts = "Ler outras postagens"
+      newerPosts = "Postagens mais novas"
+      olderPosts = "Postagens mais antigas"
+      missingContentMessage = "A página foi para /dev/null..."
+      missingBackButtonLabel = "Voltar para a homepage"
+      minuteReadingTime = "minuto(s) de leitura"
+      words = "palavras"
+
+      [languages.br.params.logo]
+        logoText = "Midnight Hackings"
+        logoHomeLink = "/"
+
+      [languages.br.menu]
+        [[languages.br.menu.main]]
+            identifier = "postagens"
+            name = "Postagens"
+            url = "/posts"
+            weight = -8
+        [[languages.br.menu.main]]
+            identifier = "tags"
+            name = "Tags"
+            url = "/tags"
+            weight = -7
+        [[languages.br.menu.main]]
+            identifier = "github"
+            name = "Github"
+            url = "https://github.com/midnight-rev"
+            weight = -6
+        [[languages.br.menu.main]]
+            identifier = "rss"
+            name = "RSS"
+            url = "/index.xml"
+            weight = -4
+        [[languages.br.menu.main]]
+          identifier = "contatos"
+          name = "Sobre"
+          url = "/contact"
+          weight = -1 
+
+
+[module]
+  # In case you would like to make changes to the theme and keep it locally in you repository,
+  # uncomment the line below (and correct the local path if necessary).
+  # --
+  replacements = "github.com/panr/hugo-theme-terminal/v4 -> midnight-hackings-theme"
+[[module.imports]]
+  path = 'github.com/panr/hugo-theme-terminal/v4'
+
+
+[markup]
+[markup.goldmark.parser]
+  wrapStandAloneImageWithinParagraph = false
+[markup.goldmark.parser.attribute]
+  block = true
 
 
 [blackfriday]
   extensions = [
-    "laxHtmlBlocks", # laxer block handling... let's see what this does?
-    "hardLineBreak", # newlines result in line breaks
+    "laxHtmlBlocks",
+    "hardLineBreak",
   ]
- 
+
 [markup.goldmark.renderer]
   unsafe = true
