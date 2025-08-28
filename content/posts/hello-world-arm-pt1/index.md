@@ -6,7 +6,8 @@ tags: [arm, reversing]
 pinned: false
 ---
 
-![arm](img/arm.png)
+> Escrito por: Mateus Gualberto (Midnight Reverser) - **orgulho de escrever sem IA envolvida no processo!**  
+> Licença: livre, como todo conhecimento deve ser.  
 
 # Introdução
 
@@ -29,7 +30,7 @@ Abaixo estão algumas informações importantes sobre a arquitetura:
 
 Na imagem abaixo, extraída de [Getting Started with Arm Assembly Language](https://developer.arm.com/documentation/107829/0200?lang=en), estão descritos alguns dos usos principais dos registradores de propósito geral.
 
-![fbf3ee65d446ef886150fd0998e9b8eb.png](img/fbf3ee65d446ef886150fd0998e9b8eb.png)
+{{< image src="img/fbf3ee65d446ef886150fd0998e9b8eb.png" position="center" style="border-radius: 1px;" >}}
 
 Especialmente para o profissional da área de análise de malware, o estudo e o domínio de conhecimento da ARM, tanto em 32-bits quanto 64-bits, é algo necessário. Um grande número de smartphones rodam na plataforma Android ou iOS sobre ARM, e a cada dia mais novos malwares são disponibilizados (inclusive nas lojas oficiais!) para download. A análise de tais artefatos pode necessitar, além da análise do código-fonte, uma análise mais profunda a nível de código de máquina, exigindo do analista um conhecimento sobre a arquitetura.
 
@@ -43,7 +44,7 @@ Para rodar instruções ARM no contexto do uso de um sistema operacional, é nec
 
 Na imagem abaixo está representado esse procedimento:
 
-![d3ba5b40ee8b99e5e2c06cd392b196bf.png](img/d3ba5b40ee8b99e5e2c06cd392b196bf.png)
+{{< image src="img/d3ba5b40ee8b99e5e2c06cd392b196bf.png" position="center" style="border-radius: 1px;" >}}
 
 Na próxima seção será abordado a forma de executar código ARM em diversos contextos.
 
@@ -88,9 +89,9 @@ sudo docker run -it --rm -p 2222:2222 stawiski/qemu-raspberrypi-3b:2023-05-03-ra
 
 O output esperado é semelhante ao das imagens abaixo:
 
-![a403a3565f86157215bff37bb74b67a7.png](img/a403a3565f86157215bff37bb74b67a7.png)
+{{< image src="img/a403a3565f86157215bff37bb74b67a7.png" position="center" style="border-radius: 1px;" >}}
 
-![bb81d7b5bc0427135114c30b180d745b.png](img/bb81d7b5bc0427135114c30b180d745b.png)
+{{< image src="img/bb81d7b5bc0427135114c30b180d745b.png" position="center" style="border-radius: 1px;" >}}
 
 Após o sistema carregar completamente, em outro terminal no seu host realize o login em *localhost:2222* via SSH, conforme imagem abaixo. O usuário é `pi` e a senha é `raspberry`:
 
@@ -98,7 +99,7 @@ Após o sistema carregar completamente, em outro terminal no seu host realize o 
 ssh -p 2222 pi@localhost
 ```
 
-![6c0c2f77a76d088c9a238fbc3e9bf229.png](img/6c0c2f77a76d088c9a238fbc3e9bf229.png)
+{{< image src="img/6c0c2f77a76d088c9a238fbc3e9bf229.png" position="center" style="border-radius: 1px;" >}}
 
 Essa imagem já contém os utilitários do *binutils* instalados, não necessitando de pós instalação. Caso o leitor queira instalar um editor de texto, como o vim, deve seguir os seguintes passos:
 
@@ -113,36 +114,36 @@ Essa abordagem não irá gerar lentidão de processamento, mas necessita de inve
 
 Para isso, realize login na AWS e acesse a [EC2 Dashboard](https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#Home:) e clique em "Launch Instance":
 
-![76b3be78260298d21174b933ad71a6a3.png](img/76b3be78260298d21174b933ad71a6a3.png)
+{{< image src="img/76b3be78260298d21174b933ad71a6a3.png" position="center" style="border-radius: 1px;" >}}
 
 Dê um nome para a máquina, como "ubuntu-arm64", selecione a AMI "Ubuntu" e selecione a arquitetura "64-bit (ARM)":
 
-![3bfacaa840e1f49e12d88300e0e78690.png](img/3bfacaa840e1f49e12d88300e0e78690.png)
+{{< image src="img/3bfacaa840e1f49e12d88300e0e78690.png" position="center" style="border-radius: 1px;" >}}
 
-![37f87bb1c182f96b05bb513c99fb2fd1.png](img/37f87bb1c182f96b05bb513c99fb2fd1.png)
+{{< image src="img/37f87bb1c182f96b05bb513c99fb2fd1.png" position="center" style="border-radius: 1px;" >}}
 
 No campo "Instance Type", selecione o tamanho requerido pela aplicação que deseja rodar e que caiba no seu investimento. No caso desse artigo, o tipo de menor preço (t4g.nano) já é suficiente.
 Adicione também uma chave de acesso - ela será utilizada para realizar login via SSH na máquina criada.
 
-![5374bb483829b6480e2595f7124537d6.png](img/5374bb483829b6480e2595f7124537d6.png)
+{{< image src="img/5374bb483829b6480e2595f7124537d6.png" position="center" style="border-radius: 1px;" >}}
 
 Adicione um storage de pelo menos 8GB para abrigar o sistema operacional e os dados.
 
-![e953f5b4aacf5c357acb246dbf387a6b.png](img/e953f5b4aacf5c357acb246dbf387a6b.png)
+{{< image src="img/e953f5b4aacf5c357acb246dbf387a6b.png" position="center" style="border-radius: 1px;" >}}
 
 Ao fim, clique em "Launch instance" e aguarde a inicialização total da máquina.
 
-![d82ba51dda08c7d5c33a75218808605d.png](img/d82ba51dda08c7d5c33a75218808605d.png)
+{{< image src="img/d82ba51dda08c7d5c33a75218808605d.png" position="center" style="border-radius: 1px;" >}}
 
 Clique no ID da instância apresentado na tela e copie o endereço IPv4 público:
 
-![9d41dccbde527fad2e3b8d83eb27dc2c.png](img/9d41dccbde527fad2e3b8d83eb27dc2c.png)
+{{< image src="img/9d41dccbde527fad2e3b8d83eb27dc2c.png" position="center" style="border-radius: 1px;" >}}
 
-![e55fba3b2185ec28a51621c7f45089ac.png](img/e55fba3b2185ec28a51621c7f45089ac.png)
+{{< image src="img/e55fba3b2185ec28a51621c7f45089ac.png" position="center" style="border-radius: 1px;" >}}
 
 Após isso, é possível logar na máquina usando a chave *.pem* baixada, mas antes é necessário utilizar o comando `chmod 700 <chave>.pem` para diminuir suas permissões e permitir que o SSH realize a conexão com sucesso via `ssh ubuntu@<IPv4 público> -i <chave>.pem`:
 
-![3244a5a40ba057f8345cdefd0ff2cec3.png](img/3244a5a40ba057f8345cdefd0ff2cec3.png)
+{{< image src="img/3244a5a40ba057f8345cdefd0ff2cec3.png" position="center" style="border-radius: 1px;" >}}
 
 Por fim, realize a instalação do binutils e um editor de texto com o comando:
 

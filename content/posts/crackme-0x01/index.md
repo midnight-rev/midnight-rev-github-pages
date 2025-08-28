@@ -6,6 +6,9 @@ tags: [ctf, crackme]
 pinned: false
 ---
 
+> Escrito por: Mateus Gualberto (Midnight Reverser) - **orgulho de escrever sem IA envolvida no processo!**  
+> Licença: livre, como todo conhecimento deve ser.  
+
 # Introdução
 
 Nesse artigo, iremos resolver o desafio [crackme#7](https://crackmes.one/crackme/64764cee33c5d439389134f2) do usuário [timotei_](https://crackmes.one/user/timotei_), disponibilizado na plataforma crackmes.one. Trataremos nas seções que seguem das análises estática e dinâmica de um código que modifica sua própria estrutura dependendo de certas condições.
@@ -14,17 +17,17 @@ Nesse artigo, iremos resolver o desafio [crackme#7](https://crackmes.one/crackme
 
 O binário trata-se de um *EXE (32-bit)* escrito em *Assembly x86*, montado pelo software assembler *MASM*. Há apenas três seções, sendo duas de dados e uma de código, e todas têm entropia baixa, indicando que não há dados comprimidos/ofuscados. Isso significa que podemos ir direto para o código, sem necessidade de analisar e executar stubs.
 
-![43c8ed68cbe8b3acab33970792a77b6f.png](img/43c8ed68cbe8b3acab33970792a77b6f.png)
+{{< image src="img/43c8ed68cbe8b3acab33970792a77b6f.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 1: indicação do montador e tipo de arquivo.*
 
-![1fd55945977377b423de3230913a1a9b.png](img/1fd55945977377b423de3230913a1a9b.png)
+{{< image src="img/1fd55945977377b423de3230913a1a9b.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 2: entropia das seções, obtidas com o software radare2.*
 
 Analisando o código estaticamente é possível verificar que não há funções implementadas, apenas o entrypoint e cinco funções importadas da `kernel32.dll`. Também há duas strings que remetem às funcionalidades de leitura de senha e realização de login.
 
-![a7d89419436af12b093a893e8a4ff8f7.png](img/a7d89419436af12b093a893e8a4ff8f7.png)
+{{< image src="img/a7d89419436af12b093a893e8a4ff8f7.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 3: listagem do entry point (entry0), funções importadas e strings.*
 
@@ -32,7 +35,7 @@ Analisando o código estaticamente é possível verificar que não há funções
 
 Quando executado, um prompt pedindo uma senha é mostrado na tela, juntamente com a mensagem `_.: eNter tHe pAsSw0rD : `.
 
-![472601e93fb3a5113dffa772e9c31df9.png](img/472601e93fb3a5113dffa772e9c31df9.png)
+{{< image src="img/472601e93fb3a5113dffa772e9c31df9.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 4: prompt de senha.*
 
@@ -40,19 +43,19 @@ Ao digitar qualquer senha, há dois comportamentos possíveis:
 
 1. o programa fecha normalmente, sem erros;
 
-![cfe6d9f2cd14347e6c44e1fd39e4c8d9.png](img/cfe6d9f2cd14347e6c44e1fd39e4c8d9.png)
+{{< image src="img/cfe6d9f2cd14347e6c44e1fd39e4c8d9.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 5: programa fechando normalmente.*
 
 2. o programa irá *crashar*.
 
-![a0fa0ff16404b5a1067fdee6bcfcb62d.png](img/a0fa0ff16404b5a1067fdee6bcfcb62d.png)
+{{< image src="img/a0fa0ff16404b5a1067fdee6bcfcb62d.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 6: programa crashando.*
 
 Esse comportamento de crash acontece independente do tamanho da senha digitada, que difere de um *buffer overflow* comum. Exemplos de casos são os caracteres *a*, que encerra o processo graciosamente, e *b*, que resulta em um encerramento abrupto. Isso pode ser um indício de que o programa provavelmente está utilizando o input para realizar alguma operação em cima da seção de texto (como, por exemplo, executar dados como código).
 
-![faf80a6869c25d0d480fa5f0d717ac22.png](img/faf80a6869c25d0d480fa5f0d717ac22.png)
+{{< image src="img/faf80a6869c25d0d480fa5f0d717ac22.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 7: inputs 'a' e 'b' e seus respectivos códigos de retorno.*
 
@@ -74,7 +77,7 @@ Analisando o entrypoint, é possível perceber três blocos principais:
 2. um segundo bloco, em ciano, que faz operações matemáticas utilizando o registrador *EAX*, que recebe um ponteiro para os 4 bytes de `0x40302e` - a senha digitada, além de outras operações aritméticas sem sentido;
 3. um terceiro bloco, em vermelho, que demonstra que as instruções que desejamos executar para concluir o desafio estão após uma chamada do *ExitProcess*.
 
-![76c08a008ffa32b974f7ab322e1c26f9.png](img/76c08a008ffa32b974f7ab322e1c26f9.png)
+{{< image src="img/76c08a008ffa32b974f7ab322e1c26f9.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 8: descompilação com r2dec.*
 
@@ -84,7 +87,7 @@ Precisamos de uma forma de "pular" essa chamada a fim de evitar o término do pr
 
 A saída do descompilador do Ghidra é mais limpo, com os mesmos blocos destacados na *Figura 9*, mas ainda assim não deixa claro qual o meio de pular a chamada do *ExitProcess*.
 
-![7aac801ff4e72ef7ace257c6a7e67891.png](img/7aac801ff4e72ef7ace257c6a7e67891.png)
+{{< image src="img/7aac801ff4e72ef7ace257c6a7e67891.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 9: descompilação com r2ghidra*
 
@@ -95,13 +98,13 @@ Após verificar dois descompiladores, talvez o disassembly nos auxilie.
 
 Os mesmos blocos explicados na seção do r2dec estão na *Figura 10*. A vantagem de analisar com um disassembler poderoso como o disponível no framework radare2 é que é possível trabalhar com endereços (primeira coluna), *opcodes* - ou bytes das instruções (segunda coluna) e com os mnemônicos e argumentos das instruções (terceira coluna).
 
-![826f7497640bb880aa39624c8293102c.png](img/826f7497640bb880aa39624c8293102c.png)
+{{< image src="img/826f7497640bb880aa39624c8293102c.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 10: disassembly do entrypoint do binário.*
 
 Analisando atentamente as duas instruções após a chamada de *ReadConsoleA*, é possível identificar a passagem de 4 bytes do endereço `0x40302e` (senha digitada) para o registrador EAX e após isso há uma operação XOR de 4 bytes de *EAX* com o valor apontado por `0x40106b`, **que aponta para a instrução após o XOR**.
 
-![b307bddaf0909db81a463fb395013e9d.png](img/b307bddaf0909db81a463fb395013e9d.png)
+{{< image src="img/b307bddaf0909db81a463fb395013e9d.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 11: operação XOR de EAX com bytes apontados por um endereço da `.text`*
 
@@ -109,7 +112,7 @@ Além disso, tanto nas saídas dos descompiladores quanto no disassembly, a prim
 
 Tendo isso em mente, o que precisamos para resolver o desafio é um valor digitado que XOR com os 4 bytes a partir de `0x40106b` resulte em um pulo para o endereço da primeira instrução após o *ExitProcess*, que é `0x0040107c`.
 
-![2f2ee0c21d92d8dbe88f5add2e701eb4.png](img/2f2ee0c21d92d8dbe88f5add2e701eb4.png)
+{{< image src="img/2f2ee0c21d92d8dbe88f5add2e701eb4.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 12: pulo para a resolução do desafio.*
 
@@ -119,7 +122,7 @@ A primeira coisa que vem à mente é utilizar um [jump short, relativo](https://
 
 Logo, esses dois primeiros bytes que sofrerão a operação XOR para se transformar no JMP não deverão entrar na conta da diferença relativa. Contando a quantidade de bytes que há após esses dois bytes até a chamada de *ExitProcess* (incluído), temos 15 bytes.
 
-![09e2e4ef131c116cf85bb2e935581de6.png](img/09e2e4ef131c116cf85bb2e935581de6.png)
+{{< image src="img/09e2e4ef131c116cf85bb2e935581de6.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 13: bytes a serem modificados em ciano, bytes até a chamada da resolução do desafio em vermelho.*
 
@@ -127,24 +130,24 @@ Logo, esses dois primeiros bytes que sofrerão a operação XOR para se transfor
 
 Agora sabemos que os 2 bytes a sofrerem o XOR devem se transformar nos bytes `EB 0F`. Trivialmente, aplicando uma operação de XOR em cada byte, obtemos a string `tI`, que é senha do desafio, conforme *Figura 14* e *Figura 15*.
 
-![d0ab64a91988446f7fbe872128b0dc2c.png](img/d0ab64a91988446f7fbe872128b0dc2c.png)
+{{< image src="img/d0ab64a91988446f7fbe872128b0dc2c.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 14: senha do desafio.*
 
-![ffecae914e79d6a31f00129110d35387.png](img/ffecae914e79d6a31f00129110d35387.png)
+{{< image src="img/ffecae914e79d6a31f00129110d35387.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 15: prova da corretude da senha.*
 
 Na análise dinâmica, podemos verificar claramente o que acontece durante a execução:
 - após digitar `tI` como senha, mas não aplicar o XOR, ainda se mantém o código original:
 
-![29604b300178db7f325cba14f680c406.png](img/29604b300178db7f325cba14f680c406.png)
+{{< image src="img/29604b300178db7f325cba14f680c406.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 16: execução passando *tI* como senha, antes da operação XOR.*
 
 - após o XOR, o código se altera e o fluxo de código também se altera.
 
-![5e7b8496e4b10bf99aba8095990164c3.png](img/5e7b8496e4b10bf99aba8095990164c3.png)
+{{< image src="img/5e7b8496e4b10bf99aba8095990164c3.png" position="center" style="border-radius: 1px;" >}}
 
 *Figura 17: execução passando *tI* como senha, após a operação XOR.*
 
