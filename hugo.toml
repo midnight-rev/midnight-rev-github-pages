@@ -121,11 +121,6 @@ pagination.pagerSize = 5
             name = "RSS"
             url = "/index.xml"
             weight = -4
-        [[languages.br.menu.main]]
-          identifier = "contatos"
-          name = "Sobre"
-          url = "/contact"
-          weight = -1 
 
 
 [module]

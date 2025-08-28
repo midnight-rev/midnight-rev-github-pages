@@ -251,9 +251,9 @@ Note que na comparação do laço for estamos utilizando uma variável local `i`
 
 Abaixo podemos ver o resultado quando o alvo é o *explorer.exe*. Foi utilizado o um valor de `THREAD_INJECTION_LIMIT` de 2, mas é possível que a cada execução esse valor possa mudar. Caso o shellcode não rode, é recomendado aumentar esse valor e tentar novamente.
 
-![02d35dc60d39f4bebb0df0f074f7fb7b.png](img/02d35dc60d39f4bebb0df0f074f7fb7b.png)
+{{< image src="img/02d35dc60d39f4bebb0df0f074f7fb7b.png" position="center" style="border-radius: 1px;" >}}
 
-Ao clicar no "Ok", o processo do explorer irá crashar, porém nosso shellcode foi executado com sucesso.
+Ao clicar no "Ok", o processo do explorer irá sair, pois nosso shellcode, nesse caso, chama a `ExitProcess`. Em shellcodes que retornam para a thread principal, isso pode causar crash da aplicação.
 
 ### EarlyBird Injection
 Para ilustrarmos a efetividade do uso de APCs em cenários de evasão de defesas, iremos testar uma variação de injeção chamado EarlyBird, ou, "O madrugador".
@@ -381,7 +381,7 @@ Em resumo, teremos uma região de memória RWX alocada em um outro processo, que
 
 O resultado está expresso na imagem abaixo.
 
-![b490da5b43f58e192d19df97a8f6bded.png](img/b490da5b43f58e192d19df97a8f6bded.png)
+{{< image src="img/b490da5b43f58e192d19df97a8f6bded.png" position="center" style="border-radius: 1px;" >}}
 
 
 Agora que já entendemos o funcionamento das variações, vamos explicar um caso de uso, testado em laboratório, para bypass do Windows Defender.
@@ -408,14 +408,14 @@ Como explicado anteriormente, estamos utilizando o Shellcode Runner apenas como 
 
 Tal artefato foi identificado e bloqueado antes mesmo de executar qualquer instrução, evidenciando que apenas as evasões de assinatura e de sandbox existentes não seriam capazes de evadir o Windows Defender.
 
-![1fe26686d7e5d87fdb07420e06a85817.png](img/1fe26686d7e5d87fdb07420e06a85817.png)
+{{< image src="img/1fe26686d7e5d87fdb07420e06a85817.png" position="center" style="border-radius: 1px;" >}}
 
 ### Resultados APC Injector
 O código do APC Injector utilizado está disponível [nesse link](https://github.com/midnight-rev/midnight-hackings-artifacts/tree/main/maldev/0x00/Malicious/APCInjector). 
 
 A injeção foi realizada no *explorer.exe*, porém, houve bloqueio do Windows Defender pouco após o estabelecimento da shell reversa, como destacado na imagem abaixo.
 
-![2ec798d5ca8bc8637f19dc256a6184a3.png](img/2ec798d5ca8bc8637f19dc256a6184a3.png)
+{{< image src="img/2ec798d5ca8bc8637f19dc256a6184a3.png" position="center" style="border-radius: 1px;" >}}
 
 ### Resultados EarlyBird
 
@@ -428,12 +428,12 @@ O motivo para a escolha desses dois arquivos em específico é que o explorer.ex
 Na imagem abaixo, podemos evidenciar o resultado do *explorer.exe*. A injeção foi um sucesso. Entretanto, ao tentarmos executar alguns comandos do meterpreter, como o comando *shell*, que nos dá controle sobre o cmd.exe do alvo, somos apresentados com bloqueios, com base em comportamento, do Windows Defender, que evita nosso acesso a shell local.
 
 
-![08aae613073683f12e9a22943a203e51.png](img/08aae613073683f12e9a22943a203e51.png)
+{{< image src="img/08aae613073683f12e9a22943a203e51.png" position="center" style="border-radius: 1px;" >}}
 
 
 Tal comportamento também ocorreu no *svchost.exe*:
 
-![569b8cf7f3ef7a7405fb29bd7bdc8cc6.png](img/569b8cf7f3ef7a7405fb29bd7bdc8cc6.png)
+{{< image src="img/569b8cf7f3ef7a7405fb29bd7bdc8cc6.png" position="center" style="border-radius: 1px;" >}}
 
 Possivelmente o Windows Defender monitora de perto as ações que o *explorer.exe* e *svchost.exe* realizam no sistema. A criação de um processo-filho do cmd.exe pode ser visto como comportamento suspeito a partir desses processos.
 
@@ -443,7 +443,7 @@ O arquivo `C:\Windows\System32\wbem\WmiPrvSE.exe` é um caso especial, visto que
 
 Testando a injeção EarlyBird, com o mesmo shellcode utilizado anteriormente, mas agora tendo como alvo o arquivo `WmiPrvSE.exe`, resultou em estabelecimento com sucesso da comunicação reversa, como no caso anterior, porém também foi possível executar o comando *shell*, sem bloqueios pelo Windows Defender:
 
-![1cf41dad10930134b3851e679a28485b.png](img/1cf41dad10930134b3851e679a28485b.png)
+{{< image src="img/1cf41dad10930134b3851e679a28485b.png" position="center" style="border-radius: 1px;" >}}
 
 
 ## Conclusão

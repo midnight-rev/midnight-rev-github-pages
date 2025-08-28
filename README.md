@@ -11,3 +11,7 @@ cd ..
 
 Faça os commits e pushes do public antes do push do projeto final.
 NOTA: o tema agora não é mais um submódulo.
+
+```sh
+hugo --cleanDestinationDir -D
+```
