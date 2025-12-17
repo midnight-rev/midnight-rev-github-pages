@@ -2,7 +2,7 @@ baseURL = "https://blog.midnighthackings.com/"
 languageCode = "br"
 defaultContentLanguage = 'br'
 title = "Midnight Hackings Blog"
-copyright = "Midnight Hackings apoia o fim da escala 6x1!"
+copyright = "Midnight Hackings Industries"
 theme = "midnight-hackings-theme"
 pygmentsUseClasses=true
 
