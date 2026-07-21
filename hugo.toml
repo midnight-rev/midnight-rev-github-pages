@@ -137,6 +137,10 @@ pagination.pagerSize = 5
   wrapStandAloneImageWithinParagraph = false
 [markup.goldmark.parser.attribute]
   block = true
+[markup.tableOfContents]
+  endLevel = 6
+  ordered = false
+  startLevel = 1
 
 
 [blackfriday]
